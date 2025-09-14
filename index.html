@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Order Hub - Affiliate Marketing</title>
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        nav {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(90deg, #ff8a00, #e52e71);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: #ff8a00;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #ff8a00, #e52e71);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.4);
+            margin: 2rem;
+            border-radius: 20px;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #ff8a00, #e52e71);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: #ddd;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(90deg, #ff8a00, #e52e71);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 138, 0, 0.3);
+        }
+        
+        /* Affiliate Section */
+        .affiliate-section {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: slideIn 1s ease-out;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .product-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: cardAppear 0.5s ease-out;
+            animation-fill-mode: backwards;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+        }
+        
+        .product-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+        
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #ff8a00;
+            margin-bottom: 1rem;
+        }
+        
+        .whatsapp-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .whatsapp-form input {
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .whatsapp-form input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .whatsapp-form button {
+            padding: 0.8rem;
+            background: linear-gradient(90deg, #25D366, #128C7E);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+        
+        .whatsapp-form button:hover {
+            background: linear-gradient(90deg, #20b858, #0e7868);
+        }
+        
+        .earnings-display {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: #ddd;
+            text-align: center;
+        }
+        
+        /* Animations */
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px rgba(255, 138, 0, 0.5);
+            }
+            to {
+                text-shadow: 0 0 20px rgba(255, 138, 0, 0.8), 0 0 30px rgba(255, 138, 0, 0.6);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes cardAppear {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                padding: 2rem 1rem;
+                margin: 1rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .affiliate-section {
+                padding: 1rem;
+            }
+        }
+        
+        /* Digital Layout Elements */
+        .digital-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .digital-element {
+            position: absolute;
+            background: linear-gradient(90deg, rgba(255, 138, 0, 0.1), rgba(233, 46, 113, 0.1));
+            border-radius: 10px;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+        }
+        /*subscribe*/
+    input[type=submit] {
+    padding: 20px;
+    border-color: lime;
+    border-radius: 200px;
+background-image: linear-gradient(to right, blue 0%, red 20%, #f0f0f0 40%, black 60%, lime 80%, gold 100%);
+background-size: 1800% 1800%;
+animation: move 2s infinite;
+}
+@keyframes move {
+0%{background-position:0% 0%}
+100%{background-position:100% 0%}
+}
+   
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            background: rgba(0, 0, 0, 0.5);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Digital Background Elements -->
+    <div class="digital-elements">
+        <div class="digital-element" style="width: 80px; height: 80px; top: 10%; left: 5%; animation-delay: 0s;"></div>
+        <div class="digital-element" style="width: 60px; height: 60px; top: 20%; right: 10%; animation-delay: 1s;"></div>
+        <div class="digital-element" style="width: 100px; height: 100px; bottom: 15%; left: 15%; animation-delay: 2s;"></div>
+        <div class="digital-element" style="width: 70px; height: 70px; bottom: 25%; right: 5%; animation-delay: 3s;"></div>
+        <div class="digital-element" style="width: 90px; height: 90px; top: 30%; left: 20%; animation-delay: 4s;"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">DigitalOrderHub</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#affiliate">Affiliate Marketing</a>
+                <a href="#products">Products</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Digital Marketplace Revolution</h1>
+        <p>Discover amazing products and earn through our affiliate marketing program. Share products on WhatsApp and get paid for every view!</p>
+        <a href="#affiliate" class="cta-button">Start Earning Now</a>
+    </section>
+
+    <!-- Affiliate Marketing Section -->
+    <section id="affiliate" class="affiliate-section">
+        <h2 class="section-title">Affiliate Marketing Products</h2>
+        <p style="text-align: center; margin-bottom: 2rem; color: #ddd;">Earn Kes 50 for every 100 views on your shared products</p>
+        
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card" style="animation-delay: 0.1s;">
+                <img src="1757793212148.jpg" alt="Modern wireless headphones with noise cancellation feature and sleek design" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Wireless Headphones</h3>
+                    <div class="product-price">Kes 2,499</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card" style="animation-delay: 0.2s;">
+                <img src="1757793273093.jpg" alt="Smart fitness tracker with heart rate monitor and activity tracking" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Fitness Tracker</h3>
+                    <div class="product-price">Kes 1,799</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card" style="animation-delay: 0.3s;">
+                <img src="1757793383347.jpg" alt="Portable power bank with high capacity for mobile devices" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Power Bank 20,000mAh</h3>
+                    <div class="product-price">Kes 1,299</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card" style="animation-delay: 0.4s;">
+                <img src="1757793543636.jpg" alt="Bluetooth speaker with premium sound quality and waterproof design" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Bluetooth Speaker</h3>
+                    <div class="product-price">Kes 3,499</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product-card" style="animation-delay: 0.5s;">
+                <img src="1757793720592.jpg" alt="Smartphone with high-resolution camera and large display" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Smartphone X5</h3>
+                    <div class="product-price">Kes 15,999</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card" style="animation-delay: 0.6s;">
+                <img src="1757793993378.jpg" alt="Gaming mouse with RGB lighting and precision sensor" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Gaming Mouse</h3>
+                    <div class="product-price">Kes 2,199</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 7 -->
+            <div class="product-card" style="animation-delay: 0.7s;">
+                <img src="1757794035478.jpg" alt="Mechanical keyboard with tactile keys and backlighting" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Mechanical Keyboard</h3>
+                    <div class="product-price">Kes 4,299</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 8 -->
+            <div class="product-card" style="animation-delay: 0.8s;">
+                <img src="1757794283051.jpg" alt="Smart watch with fitness tracking and notification features" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Smart Watch</h3>
+                    <div class="product-price">Kes 5,999</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 9 -->
+            <div class="product-card" style="animation-delay: 0.9s;">
+                <img src="1757794498057.jpg" alt="Wireless earbuds with charging case and noise isolation" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Wireless Earbuds</h3>
+                    <div class="product-price">Kes 1,899</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 10 -->
+            <div class="product-card" style="animation-delay: 1.0s;">
+                <img src="1757794572120.jpg" alt="Laptop with high-performance processor and sleek design" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Ultrabook Laptop</h3>
+                    <div class="product-price">Kes 49,999</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 11 -->
+            <div class="product-card" style="animation-delay: 1.1s;">
+                <img src="1757797019205.jpg" alt="Digital camera with zoom lens and image stabilization" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Digital Camera</h3>
+                    <div class="product-price">Kes 22,499</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 12 -->
+            <div class="product-card" style="animation-delay: 1.2s;">
+                <img src="1757794731166.jpg" alt="Gaming console with wireless controller and VR compatibility" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Gaming Console</h3>
+                    <div class="product-price">Kes 35,999</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 13 -->
+            <div class="product-card" style="animation-delay: 1.3s;">
+                <img src="1757794744553.jpg" alt="Virtual reality headset with motion tracking and controllers" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">VR Headset</h3>
+                    <div class="product-price">Kes 12,999</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 14 -->
+            <div class="product-card" style="animation-delay: 1.4s;">
+                <img src="1757794835573.jpg" alt="Drone with camera and GPS for aerial photography" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Camera Drone</h3>
+                    <div class="product-price">Kes 18,499</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 15 -->
+            <div class="product-card" style="animation-delay: 1.5s;">
+                <img src="1757794921261.jpg" alt="External hard drive with large storage capacity and fast transfer speeds" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">External Hard Drive 2TB</h3>
+                    <div class="product-price">Kes 6,999</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 16 -->
+            <div class="product-card" style="animation-delay: 1.6s;">
+                <img src="1757794989017.jpg" alt="Wireless router with high-speed internet connectivity and multiple antennas" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">WiFi Router</h3>
+                    <div class="product-price">Kes 3,899</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 17 -->
+            <div class="product-card" style="animation-delay: 1.7s;">
+                <img src="1757794998238.jpg" alt="Smart home hub for controlling connected devices with voice commands" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Smart Home Hub</h3>
+                    <div class="product-price">Kes 7,499</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 18 -->
+            <div class="product-card" style="animation-delay: 1.8s;">
+                <img src="1757795094428.jpg" alt="Action camera with waterproof case and mounting accessories" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Action Camera</h3>
+                    <div class="product-price">Kes 9,999</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 19 -->
+            <div class="product-card" style="animation-delay: 1.9s;">
+                <img src="1757795200217.jpg" alt="Electric scooter with long battery life and portable design" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Electric Scooter</h3>
+                    <div class="product-price">Kes 24,999</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 20 -->
+            <div class="product-card" style="animation-delay: 2.0s;">
+                <img src="1757795207376.jpg" alt="Smart thermostat with energy saving features and mobile app control" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Smart Thermostat</h3>
+                    <div class="product-price">Kes 8,299</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 21 -->
+            <div class="product-card" style="animation-delay: 2.1s;">
+                <img src="1757795214350.jpg" alt="Wireless charging pad for compatible smartphones and devices" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Wireless Charger</h3>
+                    <div class="product-price">Kes 1,599</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 22 -->
+            <div class="product-card" style="animation-delay: 2.2s;">
+                <img src="1757795425133.jpg" alt="Bluetooth headphones with neckband design and long battery life" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Neckband Headphones</h3>
+                    <div class="product-price">Kes 1,299</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 23 -->
+            <div class="product-card" style="animation-delay: 2.3s;">
+                <img src="1757798824187.jpg" alt="Smart light bulb with color changing features and app control" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Smart Light Bulb</h3>
+                    <div class="product-price">Kes 999</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 24 -->
+            <div class="product-card" style="animation-delay: 2.4s;">
+                <img src="1757798831214.jpg" alt="Portable projector with HD resolution and built-in speakers" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Mini Projector</h3>
+                    <div class="product-price">Kes 14,999</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 25 -->
+            <div class="product-card" style="animation-delay: 2.5s;">
+                <img src="1757798880763.jpg" alt="Security camera with night vision and motion detection" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Security Camera</h3>
+                    <div class="product-price">Kes 4,599</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 26 -->
+            <div class="product-card" style="animation-delay: 2.6s;">
+                <img src="1757798950003.jpg" alt="Electric toothbrush with multiple cleaning modes and timer" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Electric Toothbrush</h3>
+                    <div class="product-price">Kes 2,899</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 27 -->
+            <div class="product-card" style="animation-delay: 2.7s;">
+                <img src="1757799005885.jpg" alt="Air purifier with HEPA filter and quiet operation" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Air Purifier</h3>
+                    <div class="product-price">Kes 11,499</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 28 -->
+            <div class="product-card" style="animation-delay: 2.8s;">
+                <img src="1757799015952.jpg" alt="Robot vacuum cleaner with mapping technology and app control" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Robot Vacuum</h3>
+                    <div class="product-price">Kes 27,999</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 29 -->
+            <div class="product-card" style="animation-delay: 2.9s;">
+                <img src="1757799142961.jpg" alt="Smart door lock with fingerprint recognition and keyless entry" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Smart Door Lock</h3>
+                    <div class="product-price">Kes 15,499</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 30 -->
+            <div class="product-card" style="animation-delay: 3.0s;">
+                <img src="1757799159449.jpg" alt="Waterproof fitness tracker with swim tracking and heart rate monitor" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Waterproof Fitness Band</h3>
+                    <div class="product-price">Kes 2,199</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 31 -->
+            <div class="product-card" style="animation-delay: 3.1s;">
+                <img src="1757799209561.jpg" alt="Portable Bluetooth speaker with rugged design and long battery" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Outdoor Speaker</h3>
+                    <div class="product-price">Kes 3,999</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 32 -->
+            <div class="product-card" style="animation-delay: 3.2s;">
+                <img src="1757799279473.jpg" alt="Gaming chair with ergonomic design and lumbar support" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Gaming Chair</h3>
+                    <div class="product-price">Kes 12,499</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 33 -->
+            <div class="product-card" style="animation-delay: 3.3s;">
+                <img src="1757799291351.jpg" alt="Wireless gaming headset with surround sound and microphone" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Gaming Headset</h3>
+                    <div class="product-price">Kes 4,899</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 34 -->
+            <div class="product-card" style="animation-delay: 3.4s;">
+                <img src="1757799346186.jpg" alt="Smart scale with body composition analysis and app connectivity" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Smart Scale</h3>
+                    <div class="product-price">Kes 3,299</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 35 -->
+            <div class="product-card" style="animation-delay: 3.5s;">
+                <img src="1757799362597.jpg" alt="Electric kettle with temperature control and keep warm feature" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Smart Kettle</h3>
+                    <div class="product-price">Kes 2,499</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 36 -->
+            <div class="product-card" style="animation-delay: 3.6s;">
+                <img src="1757799508284.jpg" alt="Coffee maker with programmable settings and thermal carafe" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Coffee Maker</h3>
+                    <div class="product-price">Kes 5,999</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 37 -->
+            <div class="product-card" style="animation-delay: 3.7s;">
+                <img src="1757799512471.jpg" alt="Standing desk with electric height adjustment and memory presets" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Standing Desk</h3>
+                    <div class="product-price">Kes 32,999</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 38 -->
+            <div class="product-card" style="animation-delay: 3.8s;">
+                <img src="1757799518432.jpg" alt="Wireless mouse with ergonomic design and silent clicking" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Ergonomic Mouse</h3>
+                    <div class="product-price">Kes 1,899</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 39 -->
+            <div class="product-card" style="animation-delay: 3.9s;">
+                <img src="1757799550387.jpg" alt="Webcam with HD video quality and built-in microphone" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">HD Webcam</h3>
+                    <div class="product-price">Kes 2,999</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 40 -->
+            <div class="product-card" style="animation-delay: 4.0s;">
+                <img src="1757799694896.jpg" alt="Noise cancelling headphones with premium sound and comfort" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Premium Headphones</h3>
+                    <div class="product-price">Kes 8,499</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 41 -->
+            <div class="product-card" style="animation-delay: 4.1s;">
+                <img src="1757799722230.jpg" alt="Portable monitor with USB-C connectivity and slim design" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Portable Monitor</h3>
+                    <div class="product-price">Kes 18,999</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 42 -->
+            <div class="product-card" style="animation-delay: 4.2s;">
+                <img src="1757799741442.jpg" alt="Graphics tablet for digital art with pressure sensitive pen" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Drawing Tablet</h3>
+                    <div class="product-price">Kes 9,499</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 43 -->
+            <div class="product-card" style="animation-delay: 4.3s;">
+                <img src="1757799850115.jpg" alt="3D printer with precision printing and easy setup" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">3D Printer</h3>
+                    <div class="product-price">Kes 29,999</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 44 -->
+            <div class="product-card" style="animation-delay: 4.4s;">
+                <img src="1757799855768.jpg" alt="Electric standing fan with remote control and oscillation" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Smart Fan</h3>
+                    <div class="product-price">Kes 4,299</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 45 -->
+            <div class="product-card" style="animation-delay: 4.5s;">
+                <img src="1757799860973.jpg" alt="Smart plug with energy monitoring and voice control" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Smart Plug</h3>
+                    <div class="product-price">Kes 1,199</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 46 -->
+            <div class="product-card" style="animation-delay: 4.6s;">
+                <img src="1757799913625.jpg" alt="Digital photo frame with Wi-Fi connectivity and cloud storage" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Digital Photo Frame</h3>
+                    <div class="product-price">Kes 7,999</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 47 -->
+            <div class="product-card" style="animation-delay: 4.7s;">
+                <img src="1757799985824.jpg" alt="Wireless presentation clicker with laser pointer and USB receiver" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Presentation Clicker</h3>
+                    <div class="product-price">Kes 1,499</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 48 -->
+            <div class="product-card" style="animation-delay: 4.8s;">
+                <img src="1757800022949.jpg" alt="Portable air conditioner with remote control and energy saving mode" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Portable AC</h3>
+                    <div class="product-price">Kes 34,999</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 49 -->
+            <div class="product-card" style="animation-delay: 4.9s;">
+                <img src="1757800073996.jpg" alt="Electric blanket with multiple heat settings and automatic shutoff" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Electric Blanket</h3>
+                    <div class="product-price">Kes 3,799</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+
+            <!-- Product 50 -->
+            <div class="product-card" style="animation-delay: 5.0s;">
+                <img src="1757800088123.jpg" alt="Smart irrigation system with weather adaptation and app control" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Smart Irrigation System</h3>
+                    <div class="product-price">Kes 16,499</div>
+                    <div class="whatsapp-form">
+                        <input type="number" placeholder="WhatsApp views" min="0">
+                        <button type="button">Submit Views</button>
+                    </div>
+                    <div class="earnings-display">Earnings: Kes 0</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <div class="payment" text-align="center">
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_donations">
+<input type="hidden" name="business" value="07mwasjuli@gmail.com">
+<input type="hidden" name="item_name" value="Donation">
+<input type="hidden" name="amount" value="4.5">
+<input type="hidden" name="currency_code" value="USD">
+<input type="submit" value="Subscribe">
+</form>
+    </div>
+    <footer>
+        <p>&copy; 2023 DigitalOrderHub. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Add functionality to the WhatsApp view submission
+        document.addEventListener('DOMContentLoaded', function() {
+            const viewButtons = document.querySelectorAll('.whatsapp-form button');
+            
+            viewButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const input = this.previousElementSibling;
+                    const views = parseInt(input.value);
+                    const earningsDisplay = this.parentElement.nextElementSibling;
+                    
+                    if (isNaN(views) || views < 0) {
+                        alert('Please enter a valid number of views');
+                        return;
+                    }
+                    
+                    // Calculate earnings: Kes 50 per 100 views
+                    const earnings = Math.floor(views / 100) * 50;
+                    earningsDisplay.textContent = `Earnings: Kes ${earnings}`;
+                    
+                    // Show confirmation
+                    alert(`Successfully submitted ${views} views. You've earned Kes ${earnings}!`);
+                    input.value = '';
+                });
+            });
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
